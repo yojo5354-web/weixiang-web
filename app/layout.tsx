@@ -18,7 +18,7 @@ export default function RootLayout({
       <body>
         {children}
         <Toaster 
-          position="top center"
+          position="top-center"
           toastOptions={{
             duration: 2000,
             style: {
