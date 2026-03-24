@@ -17,7 +17,7 @@ export default function EditProfile() {
   const [nickname, setNickname] = useState(user?.nickname || '');
   const [bio, setBio] = useState(user?.bio || '');
   const [gender, setGender] = useState<number>(user?.gender || 0);
-  const [location, setLocation] = useState(user?.location || '');
+  const [userLocation, setUserLocation] = useState(user?.location || '');
   const [loading, setLoading] = useState(false);
   const [avatarPreview, setAvatarPreview] = useState(user?.avatar || '');
 
@@ -48,7 +48,7 @@ export default function EditProfile() {
         nickname: nickname.trim(),
         bio: bio.trim(),
         gender,
-        location: location.trim(),
+        location: userLocation.trim(),
         avatar: avatarPreview,
       });
       
@@ -186,8 +186,8 @@ export default function EditProfile() {
           <label className="block text-sm text-gray-500 mb-2">所在地</label>
           <input
             type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            value={userLocation}
+            onChange={(e) => setUserLocation(e.target.value)}
             placeholder="如：北京市"
             className="w-full text-base"
             maxLength={50}
