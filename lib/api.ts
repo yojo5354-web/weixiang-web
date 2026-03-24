@@ -32,7 +32,10 @@ api.interceptors.response.use(
       if (typeof window !== 'undefined') {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        window.location.href = '/login';
+        // 使用 window.location 而不是 location
+        if (typeof window.location !== 'undefined') {
+          window.location.href = '/login';
+        }
       }
     }
     return Promise.reject(error);
