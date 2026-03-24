@@ -6,6 +6,8 @@ interface User {
   nickname: string;
   avatar: string;
   bio?: string;
+  gender?: number;
+  location?: string;
   postCount?: number;
   followerCount?: number;
   followingCount?: number;
