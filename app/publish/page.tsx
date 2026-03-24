@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -32,8 +32,14 @@ export default function Publish() {
   const router = useRouter();
   const { isLoggedIn } = useAppStore();
 
+  // 在 useEffect 中检查登录状态，避免服务端渲染问题
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+  }, [isLoggedIn, router]);
+
   if (!isLoggedIn) {
-    router.push('/login');
     return null;
   }
 
